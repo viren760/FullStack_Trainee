@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+    <h1> Functions : </h1>
+    <script>
+        function name(fname) {
+           //  In this we will  set a condition when there is undefined fname so it will take whatever ... 
+            fname = fname || "whatever !";
+            console.log("my name is :" + fname);
+        }
+
+        name("virender");
+        name();
+
+        // In this it will occur two times true soo it willl print hello two times ..
+
+        var x = 10;
+        if ((null) || (console.log("Hello")) || x > 5) {
+            console.log("Hello");
+        }
+    </script>
+</body>
+
+</html>

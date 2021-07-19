@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+     <h1> Arrays -- </h1>
+     <section> In javascript array can be stored diffrenet datatypes in a single array . Arrays are object in javascript . it has its own properties too
+      <br> <br>
+      Array can be declared in two forms --
+       <ol>
+           <li> var array = new Array ();
+                 array[0] ="hello";
+                 array[1] =1 ;    
+                 . 
+                 . 
+                 . 
+                 array[n] = {name :' virender'};  
+        </li>
+           <li> var array =["virender" , "raman" , "rahul"];    
+        </li>
+        </ol>        
+    </section>
+    <script> 
+
+    // array define 
+
+     var array = new Array();
+     array[0] ="virender";
+     array[1] = 3113;
+     array[2] = function(name){
+         console.log ("hello "+name);
+     };
+     array[3] = {info: "virender negi , Btech CSE"};
+
+     console.log(array);
+     console.log(array[0]);
+     console.log(array[1]);
+     array[2](array[0]);
+     console.log(array[3]);
+     
+     
+     // short term array declaration
+
+      var array = ["virender", "rijwan","rohan"];
+
+      console.log("short term array declaration") 
+
+      for(var i=0; i< array.length; i++){
+          console.log("hello "+array[i]);
+      }
+
+
+    //  how to get object all propertythrough loop
+    
+    var names = {
+        course : "Java",
+        name :"james goslin",
+        framework :" spring"
+    }
+    console.log("loop in object-----");
+    for( var prop in names){
+        console.log(prop +" : "+names[prop]);
+    }
+
+    </script>
+</body>
+</html>

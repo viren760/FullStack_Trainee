@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+<body>
+    <h1> Destructuring -</h1>
+    <h4> Destructuring is an javascript expression which is used to unpack  values from array and properties in object . </h4>
+
+    <script>
+
+       // Array Destructuring ....... 
+       let array =["virender","rijwan","aman","raman"];
+
+
+       let [array0,array1,array2,array3]= array;
+
+       console.log(`================ Array Destructuring===============`);
+       console.log(`My name is ${array0} and my brother name is ${array3}`);
+
+      // Object Destructuring ........
+
+      const object ={
+        name : "virender singh negi",
+        age :23,
+        Qualification :" Btech CSE",
+        Company :{
+            profile : "It" ,
+            cname : "Maven Wave" 
+
+        }
+      };
+
+      let {name, age, Qualification, Company}= object;
+
+      console.log("=====================Object Destructuring ==================");
+      console.log(`my name is ${name} . i'm ${age} years old . i have completed my graduation in ${Qualification} . i have placed in ${Company.cname} an Atos Company  which is an ${Company.profile} Company .`);
+
+    </script>
+</body>
+</html>

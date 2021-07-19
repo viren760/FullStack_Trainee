@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    background-color: rgba(112, 2, 53, 0.733);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#nav-bar{
+   background-color: rgb(255, 255, 8);
+   display: flex;
+}
+
+
+
+#logo-img{
+  background: url('./image/zomato.png');
+  width: 70px;
+  border-radius: 20px;
+  height: 70px;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.map-item , .special-item , .menu-item{
+    height: 250px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 2px solid #3F0C1F;
+}
+
+.map-item:hover , .special-item:hover , .menu-item:hover{
+  box-shadow: 0 1px 5px 1px #cccccc;
+}
+
+.menu-item:hover, .special-item:hover, .map-item:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+  }
+
+
+.menu-item{
+    background: url("./image/noodles.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.special-item{
+    background: url("./image/pizza.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.menu-item span , .special-item span , .map-item span{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    opacity: .8;
+}
+.footer-panel{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#footer{
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+
+
+#col-1  , #col-2  , #col-3 , #col-4 , #col-5 , #col-6 , #col-7 , #col-8 , #col-9 {
+    height: 250px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    position: relative;
+    }
+
+
+#col-1 span , #col-2 span , #col-3 span, #col-4 span, #col-5 span, #col-6 span, #col-7 span, #col-8 span, #col-9 span{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 98%;
+    text-align: center;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    opacity: .8;
+}
+
+#col-1 span:hover , #col-2 span:hover , #col-3 span:hover, #col-4 span:hover, #col-5 span:hover, #col-6 span:hover, #col-7 span:hover, #col-8 span:hover, #col-9 span:hover{  
+    cursor: pointer;
+    background-color:green;
+    color: #fff;
+    opacity: .8;
+    box-shadow: 0 1px 5px 1px #cccccc;
+}
+
+#hr , #add, #serv{
+    font-size: 1.3em;
+}
+
+#Timing , #address, #qoutes{
+  font-size: .9em;
+}
+
+
+ /* Large device only */
+ @media (min-width:1200px){
+    .jumbotron{
+        background:url('./image/img.jpg') no-repeat;
+        height: 500px;
+        margin: 20px 20px 20px 60px;
+       }
+ }
+
+ /* Medium device only */
+ @media (min-width:992px) and (max-width:1199px){
+    .jumbotron{
+        background:url('./image/img.jpg') no-repeat;
+        height: 460px;
+        margin: 20px 20px 20px 20px;
+       }
+
+ }
+
+/* small device only */
+ @media(min-width:768px) and (max-width:991px){
+
+    .jumbotron{
+        background:url('./image/img.jpg') no-repeat;
+        height: 440px;
+        margin: 20px 20px 20px 20px;
+       }
+
+ }
+
+/* extra small device */
+ @media (max-width:767px){
+
+    .jumbotron{
+        background:url('./image/img.jpg') no-repeat;
+        height: 400px;
+        margin: 20px 20px 20px 20px;
+       }
+
+ }

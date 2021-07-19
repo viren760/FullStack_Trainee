@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<body>
+    
+    <h2> Pass by value -- </h2>
+    <section> in pass by value it copy the value in seperate manner it doesnot affect the first one . both of them having diffrent copy of same value . </section>
+    <ol>
+        <li> string </li>
+        <li> number</li>
+        <li> boolean </li>
+        <li> symbol</li>
+        <li> null </li>
+        <li> undefined </li>
+     </ol>   
+
+     <h2> Pass by refrence -- </h2>
+     <section> in pass by refrence it copy the adress of same copy if one of them affect it will change the original value . </section>
+      <ol> 
+          <li> Object </li>
+          <li> Function </li>
+          <li> Array </li>
+      </ol>    
+   <script>
+        // pass by value 
+     var a = 7;
+     var b =a;
+     
+     console.log("a :"+a);
+     console.log("b :"+b);
+
+     b=5;
+     console.log("after updating pass by value ---")
+     console.log("a :"+a);
+     console.log("b :"+b);
+
+    //  pass by refrence
+
+    var c = {  value: 7 };
+    var d= c;
+    console.log("c :"+c.value);
+    console.log("d :"+d.value);
+
+     d.value=5;
+     console.log("after updating pass by refrences ---")
+     console.log("c :"+c.value);
+     console.log("d :"+d.value);
+
+//  pass by value 
+
+     function changePrimitive(primevalue){
+         console.log("before the value changes");
+         console.log("before :");
+         console.log(primevalue);
+     
+    
+     primevalue =5;
+     console.log("after change value :");
+     console.log(primevalue);
+
+     }
+     
+      var value=7;
+      changePrimitive(value);
+      console.log("original value :");
+      console.log(value);
+
+//  pass by refrence
+
+      function changePrimitive(primevalue){
+         console.log("before the value changes");
+         console.log("before :");
+         console.log(primevalue);
+     
+    
+     primevalue.x = 5;
+     console.log("after change value :");
+     console.log(primevalue);
+
+     }
+     
+      var value= { x:7 };
+      changePrimitive(value);
+      console.log("original value :");
+      console.log(value);
+
+    </script>
+</body>
+</html>

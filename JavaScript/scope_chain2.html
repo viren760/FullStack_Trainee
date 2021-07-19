@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1> SCOPE CHAIN EXAMPLE 2 </h1>
+    <p> In this example function b is under function a so it take function a as a outer scope and take function a variable.</p>
+    <script> 
+    var x= 7;
+    console.log("global variable :"+x);
+
+    function a(){
+        var x=10;
+        console.log("function a :"+x);
+        function b(){
+            console.log("function b : "+x);
+        }
+        b();
+    }
+
+    a();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1> Scope Chain </h1>
+     <br>
+     <section>
+         In this function b is a separate function and it doesnot contain outer function so it take globale variable as is outer variable
+     </section>
+    <script> 
+    var x= 'this is a global varibale';
+     console.log(" global :"+x);
+
+    function a(){
+        var x= 'this is a function a variable';
+        console.log(" function a :"+x);
+
+        b();
+    }
+
+    function b(){
+        
+        console.log("function b:"+x);
+    }
+
+    a();
+    </script>
+</body>
+</html>

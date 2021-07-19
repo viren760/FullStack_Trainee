@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1> All About Function :</h1>
+    <script> 
+      function makeMultipier(multiplier){
+         var myFunc =  function (x){
+             return multiplier* x;
+         }
+         return myFunc;
+      }
+
+      var multiplyBy3 = makeMultipier(3);
+      console.log(multiplyBy3(5));     
+      // ans - 15
+
+      var doubleAll = makeMultipier(2);
+      console.log(doubleAll(100));
+      // ans - 200
+
+
+      function dooperation (x, operation){
+        return operation(x);
+      };
+
+      var result =  dooperation(5,multiplyBy3);
+      console.log(result);
+      // ans - 15
+
+      result = dooperation(100, doubleAll);
+      console.log(result);
+      // ans - 200
+
+    </script>
+</body>
+</html>

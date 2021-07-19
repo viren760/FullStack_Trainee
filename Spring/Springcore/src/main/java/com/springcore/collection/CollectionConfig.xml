@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!--comment-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <bean class="com.springcore.collection.Employee" name="emp">
+ <property name="name" value="Virender Negi" />  
+ <property name="phones" >
+ <list>
+ <value>965437822  </value>
+ <value>57698709 </value>
+ <value> 0978759847</value>
+ <value> 763486578</value>
+  </list>
+ </property>
+ 
+ <property name="address">
+ <set>
+ <value> Dabua</value>
+ <value> SGM </value>
+ <value> New Delhi </value>
+ <value> Noida </value>
+ </set>
+</property>
+
+<property name="course">
+<map>
+<entry key="Java"  value="4months" />
+<entry key="React.js"  value="3months" />
+<entry key="Node.js"  value="3months" />
+</map>
+</property>
+
+<property name="fav_lang">
+<props>
+   <prop key="1st fav">JAVA CORE </prop>
+   <prop key="2nd fav">React.js </prop>
+</props>
+</property>
+ </bean>
+ 
+ 
+</beans>

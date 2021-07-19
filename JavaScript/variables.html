@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diffrence</title>
+</head>
+
+<body>
+    <h2> Difference between Let, Var and Const </h2>
+    <h3> Var -</h3> 
+    <p> Var is a type of variable which is an function scoped element . it is also known as global variable . </p> <br>
+    <br>
+    <h3> Let - </h3>
+    <p> let is a type of variable which is an block scoped</p> <br> <br>
+    <h3> Const - </h3>
+    <p> Const is type of variable which is constant and also a block scoped variable . we cant use const outside the block scope. </p>
+
+
+    <script> 
+      var name = "virender";
+       name = "viren";
+
+       console.log("My name is :"+name);
+
+
+       let lname = "negi";
+       lname =" singh Negi";
+
+       console.log("my name is :"+name + lname);
+
+       const namee ="virender";
+       console.log("my name is :"+namee +lname);
+
+ 
+ // ========================================== Difference between var and let ============================================
+ 
+
+ //global scope or function scope
+ var whowillWin ="India";
+
+ if(true){
+     var whowillWin = "Newzealand";
+     console.log("win :"+whowillWin);
+
+ }
+
+ console.log("win :"+whowillWin);
+
+
+// block scope
+let team ="india";
+
+if(true){
+
+    let team ="Aus";
+    const love ="india lover";
+    console.log("team :"+team);
+    console.log("But m a "+love);
+}
+
+console.log("team :"+team);
+
+
+    </script>
+</body>
+
+</html>

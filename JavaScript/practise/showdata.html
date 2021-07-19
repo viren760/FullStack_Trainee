@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show</title>
+</head>
+<body>
+    <h1> Person Information</h1>
+    <div id="display">    </div>
+        <button onclick="show(0)" > viren</button>
+        <button onclick="show(1)"> rijwan </button>
+        <button onclick="show(2)"> parnav </button>
+        <button onclick="ClearData()">clear data</button>
+ 
+    <script>
+        let student =[
+           {name:'viren' , address:'D-944, Dabua colony' , profile :'full stack'}, 
+           { name:'rijwan' , address:'sainik colony sec -48' , profile :'full stack'},
+           {name :'parnav', address:'sec-55 gauchi', profile :'system engineer'} 
+        ];
+
+        function show(index){
+            let students = student [index];
+            let element = document.getElementById('display');
+            let str = '<h3>'+'Name : '+students.name+'</h3>';
+            str += '<h3>'+'Address : '+students.address+'</h3>';
+            str +='<h3>'+'Profile : '+students.profile+'<h3>';
+
+           element.innerHTML=str;
+
+        }
+
+        function ClearData(){
+            let element = document.getElementById('display'); 
+            element.innerHTML='';
+        }
+    </script>
+</body>
+</html>

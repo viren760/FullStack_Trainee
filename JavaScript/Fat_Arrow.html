@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fat Arrow Function</title>
+</head>
+<body>
+
+    <h1> Fat arrow function - </h1>
+    <h4>It is also called “fat arrow” functions, are relatively a new way of writing concise functions in JavaScript </h4>
+
+    <script> 
+    //es5
+
+    var add = function (){
+        var a = 10;
+        var b = 20;
+        return a+b;
+    }
+    
+    console.log(add());
+
+    //es6 fat arrow function -- if we have an single return type value so we should not use return in it ...
+
+    // 1st way
+    var add =() =>{
+        var a = "virender";
+        var b= "negi";
+        return a + b;
+    }
+    console.log(add());
+
+    //2nd way 
+
+
+    var a= 20;
+    var b = 10;
+
+   var add=()=> a+b;
+
+   console.log(add());
+
+   //3rd way
+
+   var add=(a,b)=> a+b;
+
+   console.log(add("monu","negi"));
+
+    </script>
+</body>
+</html>

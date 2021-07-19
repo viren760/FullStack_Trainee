@@ -1,2 +1,1 @@
-# FullStack_Trainee
-all about on Training
+# FullStack_Intern

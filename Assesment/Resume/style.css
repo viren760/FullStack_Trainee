@@ -1,0 +1,447 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+#main-container{
+    width: 80%;
+}
+
+@media (max-width:1100px){
+    #left{
+        display: none;
+    }
+
+}
+
+
+@media (min-width:){
+
+}
+
+#left{
+    background-color: black;
+    color: white;
+    padding: 0px 60px 0px 50px;
+}
+
+#main-right{
+
+}
+#right{
+    padding: 0px 60px 0px 60px;
+}
+
+#img{
+    
+    padding: 70px 0px 30px 30px;
+    margin: auto;
+}
+
+img{
+    border-radius: 50%;
+}
+
+#contact{
+    display: block;
+    padding: 30px 0px 0px 0px;
+}
+
+#allcontact{
+    padding-top: 10px;
+}
+
+i{
+    padding: 10px;
+}
+
+#mail, #number, #address, #linkedin{
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#education{
+    display: block;
+    padding-top: 40px;
+}
+
+#alleducation{
+    padding-top: 15px;
+}
+
+.school{
+    padding-top: 10px;
+}
+
+#ename{
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+#skill{
+    
+    display: block;
+    padding-top: 40px;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+
+#head{
+    background-color: #e2e2e2;
+    margin-left: 70px;
+    display: block;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+
+
+    
+
+#name{
+text-align: center;
+padding-bottom: 5px;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+#profile{
+    text-align: center;
+    padding-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#exp1{
+    display: block;
+    padding: 60px 30px 30px 30px;
+}
+#exp2{
+    display: block;
+    padding: 30px;
+}
+
+#exp3{
+    display: block;
+    padding: 30px;
+}
+
+#refrence{
+    display: block;
+    padding: 30px; 
+    padding-bottom: 90px;
+}
+
+.container{
+    padding:50px 20px 50px 20px;
+    color: white;
+    border-radius: 30px;
+}
+.material{
+    padding-top: 10px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.button{
+    text-align: center;
+}
+
+.heading{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.expp1, .expp2, .expp3{
+    display: flex;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+
+.exp1, .exp2, .exp3{
+    margin-left: auto;
+}
+
+#small{
+    border-bottom: 1px solid white;
+    width: 21%;   
+}
+
+#big{
+    border-bottom: 1px solid white;
+    padding-top: 25px;
+    width: 114%;
+}
+
+#smallw{
+   border-bottom: 2px solid black;
+   width: 7%;
+ }
+
+ #bigw{
+    background-color:black;
+    width: 98%;  
+   border: 1px solid black;
+ }
+
+ #medium{
+    border-bottom: 1px solid black;
+     width: 37%;
+ }
+
+ #mediums{
+   border-bottom: 1px solid black;
+   width: 40%;
+    margin: auto;
+ }
+ 
+
+ #sdt{
+     padding-top: 20px;
+     font-weight: bold;
+     font-family: Arial, Helvetica, sans-serif;
+     
+    }
+
+ .heads{
+     font-weight: bold;
+     font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .headss{
+     font-weight:900;
+  font-family: Arial, Helvetica, sans-serif;
+ }
+
+ #icon{
+     display: block;
+ }
+
+
+ div.a{
+    width: 40px;
+    height: 40px;
+    border: 2px solid black; 
+    -ms-transform: rotate(45deg); /* IE 9 */
+    transform: rotate(45deg);
+    display: block;
+    margin: auto;
+ }
+
+ #icon{
+     padding-bottom: 30px;
+ }
+
+ #lefthr{
+   display: flex;
+ }
+
+ #righthr{
+    display: flex;
+ }
+
+
+ div.a span:after, div.a span:before {
+    content: '';
+    position: absolute;
+    left: -323%;
+    right: 0;
+    top: 5px;
+    bottom: 0px;
+    height: 1px;
+    width: 168%;
+    margin: auto;
+    background-color: black;
+}
+ div.a span:before{
+    right: -181%;
+     left:auto;
+ }
+
+ #ref{
+   font-family: Georgia, 'Times New Roman', Times, serif;
+ }
+
+ #ref-head{
+     font-weight: 600;
+ }
+ 
+ #btn:hover{
+     background-color: crimson;
+ }
+
+ #message1,#message2,#message3,#message4,#message5{
+  color: crimson;
+ }
+
+ #footer{
+    display: flex;
+    padding: 30px 128px 30px 167px;
+ }
+
+ 
+
+ @media (max-width: 1100px){
+    .col-lg-9 {
+        flex: 0 0 100%;
+        max-width: 98%;
+    }
+    #head{
+        background-color: #e2e2e2;
+       
+        display: block;
+       
+    }
+    #main-container{
+        width: 100%;
+    }
+    #head{
+        background-color: #e2e2e2;
+        margin-left:0px ;
+        display: block;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    
+    #right{
+        padding : 0px 0px 0px 0px;
+    }
+    #main-right{
+       padding: 0px 0px 0px 0px ;
+      
+    }
+    #footer{
+        display: flex;
+        padding: 30px 20px 30px 20px;
+     }
+    
+    
+    }
+    
+    @media (min-width:768px) and (max-width:1024px) {
+        #name{
+            text-transform: uppercase;
+            font-size: revert;
+        }
+        h6.heads{
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 16px;
+        
+        }
+    }
+    @media (max-width: 1336px) and (min-width: 1024px){
+        #name {
+            text-transform: uppercase;
+            font-size: xxx-large;
+        }
+        
+    }
+
+    @media (min-width:1337px) {
+        #name{
+            text-transform: uppercase;
+        }
+        h6.heads{
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 16px;
+        
+        }
+
+        }
+    
+    
+    @media (max-width: 812px) and (min-width: 375px){
+        #name {
+            text-transform: uppercase;
+            font-size: larger;
+            font-weight: 700;
+        }
+        div.pf{
+            font-size: revert;
+        }
+        h1#name{
+                text-transform: uppercase;
+                font-size: x-large;
+                font-weight: 700;   
+        }
+       h5#pf{
+        font-size: large;
+       }
+         section.expp1,section.expp2,section.expp3{
+            font-size: smaller;
+            display: flex;
+            padding-top: 10px;
+            font-weight: bold;
+
+         }
+
+         div#ref{
+           font-size: 12px;
+         }
+    }
+
+    @media (max-width: 640px) and (min-width: 360px){
+        #name {
+            text-transform: uppercase;
+            font-size: x-large;
+            font-weight: 700;
+        }
+        div.pf{
+            font-size: revert;
+        }
+        h1#name{
+                text-transform: uppercase;
+                font-size: x-large;
+                font-weight: 700;   
+        }
+       h5#pf{
+        font-size: 15px;
+       }
+
+       h6#sdt {
+        padding-top: 20px;
+        font-weight: 700;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: smaller;
+       }
+
+       h6.heads{
+           font-size: 15px; 
+           padding-top: 17px;
+       }
+
+       h5.headss{
+        font-weight: 900;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: initial;
+    }
+     section.expp1,section.expp2,section.expp3{
+            font-size: 12px;
+            display: flex;
+            padding-top: 10px;
+            font-weight: bold;
+            
+         }
+
+         div#ref{
+           font-size: small;
+         }
+
+         section.material{
+             font-size: smaller;
+         }
+
+         h6#ref-head{
+             font-size: 13px;
+             font-weight: 600;
+         }
+    
+       }
+
+        
+    
+ 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classes</title>
+</head>
+<body>
+    <h1>CLASSES -  </h1>
+    <section> 
+        its an blueprint where we can decide the behaviour and state of an object
+    </section>
+
+    <script> 
+    class Employee{
+     
+       //constructor 
+        constructor(emp_id , emp_name, emp_age , emp_profile){
+       
+            this.id = emp_id;
+            this.name = emp_name;
+            this.age = emp_age;
+            this.profile= emp_profile;
+
+        }
+
+        slogan(){
+            return `hey my name is ${this.name} i'm maven wave employee`;
+        }   
+        
+        Dateofyear(){
+            return 2021 - this.age;
+        }
+
+        ADD(a,b){
+            return a+b;
+        }
+
+        
+    }
+
+
+    Emp  = new Employee(1 , "virender" , 23, "FULL STACK DEV");
+
+    console.log(Emp);
+    console.log(Emp.slogan());
+    console.log("Birth year of mine is :"+Emp.Dateofyear());
+    console.log("Addition :"+Emp.ADD(3,4));
+    </script>
+ </body>
+</html>

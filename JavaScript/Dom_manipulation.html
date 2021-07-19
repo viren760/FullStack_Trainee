@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D O M</title>
+</head>
+
+<body>
+    <h1> DOM MANIPULATION </h1>
+    <div id="main">
+        <section id="material">Want to know what dom manipulation do ? </section>
+        <br>
+
+    </div>
+    <button id="btn" onclick="fun()"> Click Me </button>
+    <script>
+        //adding
+        function fun() {
+            console.log("adding");
+            //creating an element using create element
+            let divElement = document.createElement("div");
+
+
+            // creating a text node using create text node
+            let textNode = document.createTextNode("this is what we do with dom manipulation ");
+            let textNode1 = document.createTextNode("In this  we can create the div element without written it on html ...");
+
+            //adding text node into element  using append child
+            divElement.appendChild(textNode);
+          
+            divElement.appendChild(textNode1);
+
+            console.log(divElement);
+
+            let mainElement = document.getElementById("main");
+            mainElement.appendChild(divElement);
+         
+           // remove the element using remove child ... 
+           let head = document.getElementById("material");
+           mainElement.removeChild(head);
+        }
+    </script>
+</body>
+
+</html>

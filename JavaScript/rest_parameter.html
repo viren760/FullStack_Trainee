@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Parameter</title>
+</head>
+<body>
+  <h1> Rest Parameter - </h1>
+  <h4> The rest parameter syntax allows a function to accept an indefinite number of arguments as an array</h4>   
+
+ <script> 
+ //es5
+   function add (a,b){
+       console.log(a+b);
+   }
+
+   add(1,2,3,4,5,6,7);
+
+
+//es6 with spread operator 
+
+function sum(...input)
+{
+    console.log(...input);
+    let total=0;
+    for(let i of input){
+        total +=i;
+    }
+    console.log(total);
+}
+
+sum(1,2,3,4,5,6,7);
+
+
+
+function fun(a,b,...c){
+    console.log(`${a} ${b}`);
+    console.log(c);
+    console.log(c[0]);
+    console.log(c.length);
+    console.log(c.indexOf('Edan'));
+}
+
+fun('Ronaldo','Neymar','pele','Messi','Edan');
+
+</script>
+</body>
+</html>

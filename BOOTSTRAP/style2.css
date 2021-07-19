@@ -1,0 +1,34 @@
+div.txt{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    display: none;
+}
+
+@media (max-width:600px){
+    #box4{
+        display: block;
+        background-color: blueviolet;
+    }
+}
+
+@media (min-width:600px) and (max-width:950px) {
+    #box3{
+        display: block;
+        background-color:rgb(255, 0, 200);
+    }
+}
+
+@media (min-width:950px) and (max-width:1300px) {
+    #box2{
+        display: block;
+        background-color:green;
+    }
+}
+
+@media (min-width:1300px)  {
+    #box1{
+        display: block;
+        background-color:tomato;
+    }
+}
