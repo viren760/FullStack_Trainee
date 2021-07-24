@@ -26,7 +26,7 @@ public class BankService {
 		if (loans == null) {
 			throw new NotFoundException("loan type not found", 404);
 		}
-		return "{" + "status: 'Success',\n" + "bankName: '" + bankname + "',\n" + "interestRate: '"
+		return "{\n" + "status: 'Success',\n" + "bankName: '" + bankname + "',\n" + "interestRate: '"
 				+ loans.getInterest() + "'\n" + "loanName: '" + loanName + "'\n" + "}";
 
 	}
