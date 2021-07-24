@@ -1,41 +1,33 @@
 package com.Banking;
 
 import java.util.List;
-//import com.google.gson.Gson;
 
 public class BankService {
 
-	public void getAllBanks() {
-		Banks.FetchAllBanks();
-//		Gson gson = new Gson();
-//		String jsonString = gson.toJson(Banks.FetchAllBanks());
-		System.out.println(	Banks.FetchAllBanks());
+	Banks b = new Banks();
 
+	public String getAllBank() {
+		return b.fetchAllBanks();
 	}
 
-	public Bank getBankDetails(String bankName) throws NotFoundException {
+	public Bank getBankByName(String bankName) {
+		Bank bank = b.getBanks().stream().filter(banks -> banks.getBankName().equals(bankName)).findAny().orElse(null);
 
-		try {
-
-			if (bankName == null) {
-				throw new NotFoundException("Empty value");
-			}
-
-		} catch (NotFoundException e) {
-
-			System.out.println("Empty name please fill the bank name ....");
-
+		if (bank == null) {
+			throw new NotFoundException("bank not found", 404);
 		}
+		return bank;
+	}
 
-		List<Bank> ban = Banks.FetchAllBanks();
-
-		for (Bank b : ban) {
-
-			if (b.getBankName().equalsIgnoreCase(bankName)) {
-				return b;
-			}
+	public String applyLoan(String bankname, String loanName) {
+		Bank bank = getBankByName(bankname);
+		Loans loans = bank.getLoans().stream().filter(loan -> loan.getLoanName().equals(loanName)).findAny()
+				.orElse(null);
+		if (loans == null) {
+			throw new NotFoundException("loan type not found", 404);
 		}
-		return null;
+		return "{" + "status: 'Success',\n" + "bankName: '" + bankname + "',\n" + "interestRate: '"
+				+ loans.getInterest() + "'\n" + "loanName: '" + loanName + "'\n" + "}";
 
 	}
 
