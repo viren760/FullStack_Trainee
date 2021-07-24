@@ -25,7 +25,7 @@ public class BankController {
 			String applyLoan = bankservice.applyLoan("SBI", "Personal Loans");
 			System.out.println(applyLoan);
 		} catch (Exception e) {
-			System.out.println("{ Status : failed }");
+			System.out.println("{\n Status : failed \n }");
 		}
 
 	}
