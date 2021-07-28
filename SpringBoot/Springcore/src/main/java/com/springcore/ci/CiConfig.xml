@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><!--comment-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:c="https://www.springframework.org/schema/c"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <bean class="com.springcore.ci.Col" name="col">
+ <constructor-arg value="Rawal Institutions of Engineering and Technology" type="String"  />
+ <constructor-arg value="Btech CSE" type="String" />
+ <constructor-arg value="7.3" type="float" />
+ </bean>
+ 
+ <bean class="com.springcore.ci.MyInfo" name="myinfo">
+ <constructor-arg value="Virender Singh Negi" type="String" />
+ <constructor-arg  value="16-CSE-3113" type="String" />
+ <constructor-arg ref="col" />
+ </bean>
+ 
+ 
+</beans>

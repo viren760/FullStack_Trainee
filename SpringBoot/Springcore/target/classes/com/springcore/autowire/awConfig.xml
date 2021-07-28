@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!--comment-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:c="https://www.springframework.org/schema/c"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <bean class="com.springcore.autowire.Address" name="address">
+ <property name="house_no" value="944" />
+  <property name="street" value="Dabua Colony" />
+   <property name="city" value="Faridabad" />
+    <property name="pincode" value="121001" />
+  </bean>
+  
+  <bean class="com.springcore.autowire.Emp" name="emp" autowire="constructor"> 
+  </bean>
+ 
+ 
+</beans>

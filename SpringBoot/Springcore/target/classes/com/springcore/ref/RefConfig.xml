@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!--comment-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <bean class="com.springcore.ref.B" name="refB">
+<property name="Y" value="123" />
+ </bean>
+ 
+ <bean class="com.springcore.ref.A" name="refA">
+ <property name="X" value="30"/>
+ <property name="obj">
+ <ref bean="refB" />
+ </property>
+ </bean>
+ 
+ 
+</beans>
