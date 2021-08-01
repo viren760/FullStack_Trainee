@@ -1,18 +1,14 @@
 package com.spring.bank.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-
 
 @Entity
 @Table(name = "bankDetails")
 public class Banks {
 
-    @Id
+	@Id
 	private String bankName;
 	private String loanName;
 	private int bankInterest;

@@ -9,10 +9,9 @@ import com.spring.bank.entities.Banks;
 
 @Repository
 public interface BankRepository extends CrudRepository<Banks, String> {
-	
-	public Optional<Banks> findByBankName(String bankName);
-	
-	public Optional<Banks> findByBankNameAndLoanName(String bankName , String LoanName);
 
+	public Optional<Banks> findByBankName(String bankName);
+
+	public Optional<Banks> findByBankNameAndLoanName(String bankName, String LoanName);
 
 }
