@@ -30,34 +30,33 @@ public class BankService {
 	}
 	
 	public Banks findByBankName(String bankName) {
-		log.info("findByBankName",bankName);
+		log.info("findByBankName"+" "+bankName);
 		return this.bankrepository.findByBankName(bankName).orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
 		
 		
 	}
 	
 	public Banks applyForLoans(String bankName , String loanName){
-		log.info("applyForLoans",bankName, loanName);
+		log.info("applyForLoans"+" "+bankName+" "+loanName);
 		Banks applyForloans = this.bankrepository.findByBankNameAndLoanName(bankName, loanName).orElseThrow(()-> new CustomException("Not Found",HttpStatus.NOT_FOUND));
 		return applyForloans;
 	}
 	
 	public Banks CreateNewBank(Banks banks) {
-		log.info("CreateNewBank",banks);
+		log.info("CreateNewBank"+" "+banks);
 		Banks save = this.bankrepository.save(banks);
 		return save;
 		
 	}
 	
 	public void DeleteBanks(String bankName) {
-		log.info("DeleteBanks",bankName);
+		log.info("DeleteBanks"+" "+bankName);
 		this.bankrepository.deleteById(bankName);		
 	}
 	
 	public Banks UpdateBanks( String bankName, Banks b) {
-		log.info("UpdateBanks",bankName,b);
+		log.info("UpdateBanks"+" "+bankName,b);
 		Banks banks = bankrepository.findByBankName(bankName).orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
-		banks.setBankName(b.getBankName());
 		banks.setBankInterest(b.getBankInterest());
 		banks.setLoanName(b.getLoanName());
 		return this.bankrepository.save(banks);
