@@ -1,7 +1,21 @@
 package com.spring.bookstore.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+
+import javax.persistence.Id;
+
+@Entity
+@Table(name="Book_details")
 public class books {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="book_id")
 	private int id;
 	private String book_name;
 	private String book_author;
