@@ -2,7 +2,6 @@ package com.spring.bank.controller;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,8 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.bank.entities.Banks;
 import com.spring.bank.exception.CustomException;
-import com.spring.bank.repository.BankRepository;
-import com.spring.bank.repository.loansRepository;
 import com.spring.bank.service.BankService;
 
 @RestController
@@ -34,9 +31,6 @@ public class BankController {
 
 	@Value("${user.password}")
 	private String password;
-
-	@Autowired
-	private loansRepository loansRepository;
 
 	@Autowired
 	private BankService bankservice;
@@ -62,22 +56,16 @@ public class BankController {
 	}
 
 	@GetMapping("/{bankId}/{loanName}")
-	public String applyForLoan(@PathVariable("bankId") int bankId, @PathVariable("loanName") String loan_name) {
-		return bankservice.applyForLoans(bankId, loan_name);
+	public String applyForLoan(@PathVariable("bankId") int bankId, @PathVariable("loanName") String loanName) {
+		return bankservice.applyForLoans(bankId, loanName);
 
 	}
 
 	@PostMapping
 	public ResponseEntity<Banks> createNewBank(@RequestBody Banks banks, HttpServletRequest request) {
-		
+
 		this.validateUser(request);
-		Banks createNewBank = null;
-		try {
-			createNewBank = bankservice.createNewBank(banks);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-		}
+		Banks createNewBank = bankservice.createNewBank(banks);
 		return ResponseEntity.of(Optional.of(createNewBank));
 	}
 
@@ -92,12 +80,12 @@ public class BankController {
 
 	@DeleteMapping("/{bankId}")
 	public ResponseEntity<String> deleteBank(@PathVariable("bankId") int bankId) {
-					bankservice.deleteBanks(bankId);
-					return ResponseEntity.ok().body("Succesfully deleted ....");
-	
+		bankservice.deleteBanks(bankId);
+		return ResponseEntity.ok().body("Succesfully deleted ....");
+
 	}
 
-	@PutMapping()
+	@PutMapping
 	public Banks updateBanks(@RequestBody Banks bank) {
 		this.bankservice.updateBanks(bank);
 		return bank;
