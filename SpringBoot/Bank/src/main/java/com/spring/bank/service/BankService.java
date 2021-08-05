@@ -43,22 +43,23 @@ public class BankService {
 
 	}
 
-	public String DeleteBanks(int bankId) {
-		log.info("DeleteBanks" + " " + bankId);
+	public void DeleteBanks(int bankId) {
+		log.info("Successfully deleted bank id no : " + " " + bankId);
 		this.bankrepository.deleteById(bankId);
-		return "Successfully Deleted id no :"+bankId;
 	}
 
 	public Banks UpdateBanks(Banks b, int bankId) {
+		log.info("Successfully Updated Banks details :"+b);
 	    b.setBankName(b.getBankName());  
 		 return this.bankrepository.save(b);
 	}
 
 	public String applyForLoans(int bankId, String loan_name) {
+		log.info("Loan apply successfully");
 		Banks bank = bankrepository.findById(bankId).orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
 		List<Loans> loans = bank.getLoans();
 		loans.stream().filter(f -> f.getLoanName().equalsIgnoreCase(loan_name.trim())).findAny().orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
-		return "loan apply success";
+		return "loan apply successfully";
 		
 	}
 

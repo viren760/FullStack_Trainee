@@ -93,14 +93,15 @@ public class BankController {
 	}
 
 	@DeleteMapping("/{bankId}")
-	public ResponseEntity<String> DeleteBank(@PathVariable("bankId") int bankId) {
+	public ResponseEntity<Void> DeleteBank(@PathVariable("bankId") int bankId) {
 		try {
 			bankservice.DeleteBanks(bankId);
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-		}  
+		}
+          
 	}
 
 	@PutMapping("/{bankId}")
