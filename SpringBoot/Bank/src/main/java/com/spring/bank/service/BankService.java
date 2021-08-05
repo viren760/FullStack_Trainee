@@ -1,6 +1,7 @@
 package com.spring.bank.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,9 @@ import com.spring.bank.repository.BankRepository;
 @Service
 public class BankService {
 
+	@Autowired
+	private BankService bankservice;
+	
 	@Autowired
 	private BankRepository bankrepository;
 
@@ -35,22 +39,43 @@ public class BankService {
 
 	}
 
-	public Banks CreateNewBank(Banks banks) {
+	public Banks createNewBank(Banks banks) {
 		log.info("CreateNewBank" + " " + banks);
 		banks.setBankName(banks.getBankName());
 		return this.bankrepository.save(banks);
 
 	}
 
-	public void DeleteBanks(int bankId) {
+	public void deleteBanks(int bankId) {
 		log.info("Successfully deleted bank id no : " + " " + bankId);
-		this.bankrepository.deleteById(bankId);
+		Banks bank = bankrepository.findByBankId(bankId).orElseThrow(() -> new CustomException("No Bank found", HttpStatus.NOT_FOUND));
+		bankrepository.delete(bank);
 	}
 
-	public Banks UpdateBanks(Banks b, int bankId) {
-		log.info("Successfully Updated Banks details");
-		b.setBankName(b.getBankName());
-		return this.bankrepository.save(b);
+	public void updateBanks(Banks b) {
+		
+		Banks bank = bankrepository.findByBankId(b.getBankId()).orElseThrow(() -> new CustomException("No Bank found", HttpStatus.NOT_FOUND));
+		bank.setBankName(b.getBankName());
+
+		
+		List<Loans> newLoans = b.getLoans();
+		List<Loans> oldLoans = bank.getLoans();
+		
+		for(Loans l: newLoans) {
+			
+			Loans loan = oldLoans.stream().filter(lon -> lon.getLoanId() == l.getLoanId()).findAny()
+					.orElseThrow(() -> new CustomException("No Bank found", HttpStatus.NOT_FOUND));
+			
+			loan.setLoanName(l.getLoanName());
+			loan.setLoanInterest(l.getLoanInterest());
+						
+		}
+		
+
+		bankrepository.save(bank);
+		log.info("Successfully Updated Bank details");
+		
+
 	}
 
 	public String applyForLoans(int bankId, String loan_name) {

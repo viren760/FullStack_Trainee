@@ -1,5 +1,7 @@
 package com.spring.bank.entities;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +23,6 @@ public class Loans {
 	@Column(name = "loan_name")
 	private String loanName;
 	@Column(name = "loan_interest")
-	private int loanInterest;
+	private BigDecimal loanInterest;
 
 }

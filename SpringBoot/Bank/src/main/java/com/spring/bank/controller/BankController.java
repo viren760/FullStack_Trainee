@@ -2,6 +2,7 @@ package com.spring.bank.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.bank.entities.Banks;
 import com.spring.bank.exception.CustomException;
+import com.spring.bank.repository.BankRepository;
 import com.spring.bank.repository.loansRepository;
 import com.spring.bank.service.BankService;
 
@@ -34,18 +36,18 @@ public class BankController {
 	private String password;
 
 	@Autowired
-	loansRepository loansRepository;
+	private loansRepository loansRepository;
 
 	@Autowired
 	private BankService bankservice;
 
-	@GetMapping("/")
-	public ResponseEntity<List<Banks>> GetAllBanks() {
-		List<Banks> allbanks = bankservice.getAllbanks();
-		if (allbanks.size() <= 0) {
+	@GetMapping
+	public ResponseEntity<List<Banks>> getAllBanks() {
+		List<Banks> allBanks = bankservice.getAllbanks();
+		if (allBanks.size() <= 0) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		return ResponseEntity.of(Optional.of(allbanks));
+		return ResponseEntity.of(Optional.of(allBanks));
 
 	}
 
@@ -65,12 +67,13 @@ public class BankController {
 
 	}
 
-	@PostMapping("/")
-	public ResponseEntity<Banks> CreateNewBank(@RequestBody Banks banks, HttpServletRequest request) {
+	@PostMapping
+	public ResponseEntity<Banks> createNewBank(@RequestBody Banks banks, HttpServletRequest request) {
+		
 		this.validateUser(request);
 		Banks createNewBank = null;
 		try {
-			createNewBank = bankservice.CreateNewBank(banks);
+			createNewBank = bankservice.createNewBank(banks);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -88,28 +91,16 @@ public class BankController {
 	}
 
 	@DeleteMapping("/{bankId}")
-	public ResponseEntity<Void> DeleteBank(@PathVariable("bankId") int bankId) {
-		try {
-			bankservice.DeleteBanks(bankId);
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-		}
-
+	public ResponseEntity<String> deleteBank(@PathVariable("bankId") int bankId) {
+					bankservice.deleteBanks(bankId);
+					return ResponseEntity.ok().body("Succesfully deleted ....");
+	
 	}
 
-	@PutMapping("/{bankId}")
-	public ResponseEntity<Banks> UpdateBanks(@RequestBody Banks b, @PathVariable("bankId") int bankId) {
-		try {
-
-			Banks updateBanks = bankservice.UpdateBanks(b, bankId);
-			return ResponseEntity.ok().body(b);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-		}
-
+	@PutMapping()
+	public Banks updateBanks(@RequestBody Banks bank) {
+		this.bankservice.updateBanks(bank);
+		return bank;
 	}
 
 }

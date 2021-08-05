@@ -44,8 +44,7 @@ public class BooksService {
 
 	// this is for deleting old data with delete method ...
 	public void DeleteBook(int id) {
-		this.bookrepository.deleteById(id);
-
+		this.bookrepository.deleteById(id);  
 	}
 
 	// this is used for updating the book ...
