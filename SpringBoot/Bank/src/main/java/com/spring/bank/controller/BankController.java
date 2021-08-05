@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.bank.entities.Banks;
 import com.spring.bank.exception.CustomException;
-import com.spring.bank.repository.BankRepository;
 import com.spring.bank.repository.loansRepository;
 import com.spring.bank.service.BankService;
 
@@ -33,9 +32,6 @@ public class BankController {
 
 	@Value("${user.password}")
 	private String password;
-
-	@Autowired
-	private BankRepository bankRepository;
 
 	@Autowired
 	loansRepository loansRepository;
@@ -62,7 +58,6 @@ public class BankController {
 		return ResponseEntity.of(Optional.of(findByBankName));
 
 	}
-
 
 	@GetMapping("/{bankId}/{loanName}")
 	public String applyForLoan(@PathVariable("bankId") int bankId, @PathVariable("loanName") String loan_name) {
@@ -101,7 +96,7 @@ public class BankController {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
-          
+
 	}
 
 	@PutMapping("/{bankId}")

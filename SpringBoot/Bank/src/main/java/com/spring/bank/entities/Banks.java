@@ -22,16 +22,13 @@ public class Banks {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="bank_id")
+	@Column(name = "bank_id")
 	private int bankId;
-	@Column(name="bank_name")
+	@Column(name = "bank_name")
 	private String bankName;
 
-	@OneToMany(targetEntity = Loans.class, cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-	@JoinColumn(name="bank_loanfk", referencedColumnName = "bank_id")
+	@OneToMany(targetEntity = Loans.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "bank_loanfk", referencedColumnName = "bank_id")
 	private List<Loans> loans;
 
-	
-	
-	
 }

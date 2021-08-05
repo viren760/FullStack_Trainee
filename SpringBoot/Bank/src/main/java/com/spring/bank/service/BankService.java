@@ -31,10 +31,9 @@ public class BankService {
 	public Banks findByBankId(int bankId) {
 		log.info("findByBankName" + " " + bankId);
 		return this.bankrepository.findByBankId(bankId)
-	  			.orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
-  
-	}
+				.orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
 
+	}
 
 	public Banks CreateNewBank(Banks banks) {
 		log.info("CreateNewBank" + " " + banks);
@@ -49,18 +48,20 @@ public class BankService {
 	}
 
 	public Banks UpdateBanks(Banks b, int bankId) {
-		log.info("Successfully Updated Banks details :"+b);
-	    b.setBankName(b.getBankName());  
-		 return this.bankrepository.save(b);
+		log.info("Successfully Updated Banks details");
+		b.setBankName(b.getBankName());
+		return this.bankrepository.save(b);
 	}
 
 	public String applyForLoans(int bankId, String loan_name) {
 		log.info("Loan apply successfully");
-		Banks bank = bankrepository.findById(bankId).orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
+		Banks bank = bankrepository.findById(bankId)
+				.orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
 		List<Loans> loans = bank.getLoans();
-		loans.stream().filter(f -> f.getLoanName().equalsIgnoreCase(loan_name.trim())).findAny().orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
+		loans.stream().filter(f -> f.getLoanName().equalsIgnoreCase(loan_name.trim())).findAny()
+				.orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
 		return "loan apply successfully";
-		
+
 	}
 
 }
