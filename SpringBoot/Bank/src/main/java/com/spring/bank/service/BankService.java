@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.spring.bank.entities.Banks;
+import com.spring.bank.entities.Loans;
 import com.spring.bank.exception.CustomException;
 import com.spring.bank.repository.BankRepository;
 
@@ -23,43 +24,42 @@ public class BankService {
 	public List<Banks> getAllbanks() {
 		log.info("getAllbanks");
 		Iterable<Banks> findAll = this.bankrepository.findAll();
-		return (List) findAll;
+		return (List<Banks>) findAll;
 
 	}
 
-	public Banks findByBankName(String bankName) {
-		log.info("findByBankName" + " " + bankName);
-		return this.bankrepository.findByBankName(bankName)
-				.orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
-
+	public Banks findByBankId(int bankId) {
+		log.info("findByBankName" + " " + bankId);
+		return this.bankrepository.findByBankId(bankId)
+	  			.orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
+  
 	}
 
-	public Banks applyForLoans(String bankName, String loanName) {
-		log.info("applyForLoans" + " " + bankName + " " + loanName);
-		Banks applyForloans = this.bankrepository.findByBankNameAndLoanName(bankName, loanName)
-				.orElseThrow(() -> new CustomException("Not Found", HttpStatus.NOT_FOUND));
-		return applyForloans;
-	}
 
 	public Banks CreateNewBank(Banks banks) {
 		log.info("CreateNewBank" + " " + banks);
-		Banks save = this.bankrepository.save(banks);
-		return save;
-
-	}
-
-	public void DeleteBanks(String bankName) {
-		log.info("DeleteBanks" + " " + bankName);
-		this.bankrepository.deleteById(bankName);
-	}
-
-	public Banks UpdateBanks(String bankName, Banks b) {
-		log.info("UpdateBanks" + " " + bankName, b);
-		Banks banks = bankrepository.findByBankName(bankName)
-				.orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
-		banks.setBankInterest(b.getBankInterest());
-		banks.setLoanName(b.getLoanName());
+		banks.setBankName(banks.getBankName());
 		return this.bankrepository.save(banks);
+
+	}
+
+	public String DeleteBanks(int bankId) {
+		log.info("DeleteBanks" + " " + bankId);
+		this.bankrepository.deleteById(bankId);
+		return "Successfully Deleted id no :"+bankId;
+	}
+
+	public Banks UpdateBanks(Banks b, int bankId) {
+	    b.setBankName(b.getBankName());  
+		 return this.bankrepository.save(b);
+	}
+
+	public String applyForLoans(int bankId, String loan_name) {
+		Banks bank = bankrepository.findById(bankId).orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
+		List<Loans> loans = bank.getLoans();
+		loans.stream().filter(f -> f.getLoanName().equalsIgnoreCase(loan_name.trim())).findAny().orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
+		return "loan apply success";
+		
 	}
 
 }

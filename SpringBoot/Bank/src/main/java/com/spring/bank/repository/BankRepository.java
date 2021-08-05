@@ -2,16 +2,14 @@ package com.spring.bank.repository;
 
 import java.util.Optional;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.spring.bank.entities.Banks;
 
 @Repository
-public interface BankRepository extends CrudRepository<Banks, String> {
+public interface BankRepository extends JpaRepository<Banks, Integer> {
 
-	public Optional<Banks> findByBankName(String bankName);
-
-	public Optional<Banks> findByBankNameAndLoanName(String bankName, String LoanName);
+	public Optional<Banks> findByBankId(int bankId);
 
 }
