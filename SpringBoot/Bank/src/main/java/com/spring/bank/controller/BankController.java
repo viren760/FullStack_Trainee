@@ -3,8 +3,6 @@ package com.spring.bank.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.bank.entities.Banks;
-import com.spring.bank.exception.CustomException;
 import com.spring.bank.service.BankService;
 
 @RestController
@@ -62,20 +59,10 @@ public class BankController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Banks> createNewBank(@RequestBody Banks banks, HttpServletRequest request) {
+	public ResponseEntity<Banks> createNewBank(@RequestBody Banks banks) {
 
-		this.validateUser(request);
 		Banks createNewBank = bankservice.createNewBank(banks);
 		return ResponseEntity.of(Optional.of(createNewBank));
-	}
-
-	private void validateUser(HttpServletRequest request) {
-		String username = request.getHeader("username").trim();
-		String password = request.getHeader("password").trim();
-
-		if (!username.equals(username) || !password.equals(password)) {
-			throw new CustomException("invalid credentials", HttpStatus.BAD_REQUEST);
-		}
 	}
 
 	@DeleteMapping("/{bankId}")

@@ -37,7 +37,7 @@ public class BankService {
 
 	public Banks createNewBank(Banks banks) {
 		log.info("CreateNewBank" + " " + banks);
-		banks.setBankName(banks.getBankName());
+		
 		return this.bankrepository.save(banks);
 
 	}
