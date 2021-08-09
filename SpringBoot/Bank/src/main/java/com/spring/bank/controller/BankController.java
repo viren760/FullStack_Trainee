@@ -23,11 +23,6 @@ import com.spring.bank.service.BankService;
 @RequestMapping("/banks")
 public class BankController {
 
-	@Value("${user.username}")
-	private String username;
-
-	@Value("${user.password}")
-	private String password;
 
 	@Autowired
 	private BankService bankservice;
