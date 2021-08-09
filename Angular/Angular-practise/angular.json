@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "9fe2bc87-49bf-43cf-875d-bb32ab61e0d6"
+    "analytics": "3d64f8c7-a751-4f0e-9773-a23e3765b70a"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Todo-list": {
+    "Angular-practise": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Todo-list",
+            "outputPath": "dist/Angular-practise",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,12 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "./node_modules/jquery/dist/jquery.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -74,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Todo-list:build:production"
+              "browserTarget": "Angular-practise:build:production"
             },
             "development": {
-              "browserTarget": "Todo-list:build:development"
+              "browserTarget": "Angular-practise:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Todo-list:build"
+            "browserTarget": "Angular-practise:build"
           }
         },
         "test": {
@@ -108,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "Todo-list"
+  "defaultProject": "Angular-practise"
 }
