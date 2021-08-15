@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    cursor: pointer;
+}
+span.badge{
+font-size: larger;
+background-color: black;
+color: white;
+}
+
+span.text{
+    font-size:larger;
+    background-color: blanchedalmond;
+}
+
+span.text.selected{
+    background-color: #CFD8dc;
+    color: white;
+}
+
+div.dep{
+    margin-top: 10px;
+}
+
+
+

@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+#right{
+    margin-left: 75pc;
+}
+
+.login-h{
+    text-align: center;
+}
+
+.sign-h{
+    text-align: center;
+}
+
+input.ng-invalid{
+    border-left: 5px solid red;
+}
+
+input.ng-valid{
+    border-left: 5px solid green;
+}
+
+.login-b,.sign-b{
+color: blue;
+cursor: pointer;
+margin-left: 43%;
+font-size: large;
+font-weight: bold;
+}
+
+.login-b:hover{
+    color:green;
+}
+
+.sign-b:hover{
+    color: red;
+}
+
+#login{
+
+}
+
+#sign{
+
+}
+
+#cbtn{
+   margin-left: 46%;
+   margin-top: 15px;
+}
+
+#inc-dec{
+    margin-top: 58px;
+    margin-left: 65px;
+}
+
+#op{
+    padding: 0px 15px 5px 10px;
+    color: white;
+    background-color: green;
+}
+
+#loan{
+    border: 1px solid black;
+    padding: 25px;
+    margin-top: 15px;
+}
+
+#bdetail{
+    margin-top: 10px;
+}

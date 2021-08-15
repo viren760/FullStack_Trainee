@@ -1,0 +1,16 @@
+<div class="conatiner">
+    <h2> ADD TODO</h2>
+    <form (ngSubmit)="onSubmit()" >
+        <div class="form-group my-3">
+          <label>Todo Title</label>
+          <input type="email" class="form-control" [(ngModel)]="title" value=""  id="title" name="title" aria-describedby="emailHelp" placeholder="Enter your title">
+        </div>
+        <div class="form-group my-3">
+          <label>Todo Description</label>
+          <input type="text" class="form-control" [(ngModel)]="desc" value="" id="desc" name="desc" placeholder="Type your Description">
+        </div>
+        <div class="my-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+</div>
