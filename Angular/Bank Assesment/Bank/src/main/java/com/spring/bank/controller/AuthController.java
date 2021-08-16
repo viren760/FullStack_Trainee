@@ -12,29 +12,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.bank.entities.Login;
+import com.spring.bank.dto.LoginRequest;
+import com.spring.bank.dto.Response;
+import com.spring.bank.entities.User;
 import com.spring.bank.service.LoginService;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/login")
-public class LoginController {
+public class AuthController {
 
 	@Autowired
 	private LoginService loginService;
 
 	@GetMapping
-	public List<Login> getAllDetails() {
-		List<Login> allDetails = this.loginService.getAllDetails();
+	public List<User> getAllDetails() {
+		List<User> allDetails = this.loginService.getAllDetails();
 		return allDetails;
 
 	}
 
-	@PostMapping()
-	public ResponseEntity<Login> createNewLogin(@RequestBody Login login) {
+	@PostMapping("/signup")
+	public ResponseEntity<User> createNewLogin(@RequestBody User user) {
 
-		Login createNewLogin = loginService.createNewLogin(login);
+		User createNewLogin = loginService.createNewLogin(user);
 		return ResponseEntity.of(Optional.of(createNewLogin));
 	}
 
+	@PostMapping("/login")
+	public Response<String> login(@RequestBody LoginRequest login){
+		return loginService.login(login);
+	}
+	
 }

@@ -90,7 +90,7 @@ export class SigninComponent implements OnInit {
   });
  
   onsubmit(data: any){
-    this.http.post("http://localhost:9091/login",data).subscribe((result)=>{
+    this.http.post("http://localhost:9091/login/signup",data).subscribe((result)=>{
       console.log('result',result)
       if(this.signup.invalid){
         return alert('Failed to submit');
@@ -100,6 +100,14 @@ export class SigninComponent implements OnInit {
       }
     })
 //  this.router.navigate(['/login'],{relativeTo:this.route})
+  }
+
+  signinRequest(r:any){
+    if(r.status == 200){
+      return  this.router.navigate(['/login'], { relativeTo: this.route });
+    }else{
+      return alert(r.message);
+    }
   }
  
 }

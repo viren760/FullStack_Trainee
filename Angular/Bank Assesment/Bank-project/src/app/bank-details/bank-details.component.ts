@@ -1,4 +1,5 @@
-import { EditBanksComponent } from './../edit-banks/edit-banks.component';
+import { Router, ActivatedRoute } from '@angular/router';
+import { EditBanksComponent } from 'src/app/edit-banks/edit-banks.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 
       </div>
       <div class="col-2">
-        <button class="btn btn-success" routerLink='/editbanks'>Edit</button>
+        <button class="btn btn-success" (click)='edit()'>Edit</button>
       </div>
     </div>
    </div>
@@ -20,9 +21,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  edit(){
+   this.router.navigate(['/bank/editbanks'],{relativeTo:this.route})
   }
 
 }

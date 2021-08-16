@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
           <label for="exampleInputEmail1">Email address</label>
           <input
             type="email"
+            [(ngModel)]='email' 
             class="form-control"
             id="exampleInputEmail1"
             formControlName="email"
@@ -29,6 +30,7 @@ import { HttpClient } from '@angular/common/http';
           <input
             type="password"
             class="form-control"
+            [(ngModel)]='password'
             formControlName="password"
             id="exampleInputPassword1"
             placeholder="Password"
@@ -57,7 +59,9 @@ import { HttpClient } from '@angular/common/http';
   styles: [],
 })
 export class LoginComponent implements OnInit {
-  public users: User[] | undefined;
+   email:any;
+   password:any;
+  public users: User | undefined;
   constructor(private router: Router, private route: ActivatedRoute, private http:HttpClient) {}
 
   ngOnInit(): void {}
@@ -77,10 +81,25 @@ export class LoginComponent implements OnInit {
   // }
 
   onsubmit() {
-    this.router.navigate(['/sign'], { relativeTo: this.route });
-   
     if(this.loginForm.invalid){
-      return alert('Please Login First !!!');
+      return alert('Please Login First !!!')
+    }else{
+      let loginRequest = {
+        "email":this.email,
+        "password":this.password
+      }
+      this.http.post("http://localhost:9091/login/login",loginRequest).subscribe( (res)=>{
+      this.loginRequest(res);
+     });
     }
+  }
+
+  loginRequest(r:any){
+    if(r.status == 200){
+      return  this.router.navigate(['/bank/banks'], { relativeTo: this.route });
+    }else{
+      return alert(r.message);
+    }
+
   }
 }

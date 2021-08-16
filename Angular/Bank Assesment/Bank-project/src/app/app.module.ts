@@ -1,33 +1,36 @@
+import { AuthGuard } from './auth.guard';
+import { BanksModule } from './banks/banks.module';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser'
 import{ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { CreateBankComponent } from './create-bank/create-bank.component';
 import { BankComponent } from './bank/bank.component';
-import { ShowBanksComponent } from './show-banks/show-banks.component';
-import { CreateBanksComponent } from './create-banks/create-banks.component';
-import { BankDetailsComponent } from './bank-details/bank-details.component';
-import { EditBanksComponent } from './edit-banks/edit-banks.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponent,
-    BankComponent,
-    ShowBanksComponent,
-    CreateBanksComponent,
-    BankDetailsComponent,
-    EditBanksComponent
-  ],
+    CreateBankComponent,
+    BankComponent
+  ], entryComponents: [BankComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-   HttpClientModule
+   HttpClientModule,
+   FormsModule,
+   ReactiveFormsModule,
+   CommonModule,
+   BanksModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

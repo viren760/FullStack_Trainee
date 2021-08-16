@@ -1,13 +1,13 @@
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-banks',
+  selector: 'app-create-bank',
   template: `
     <div class="container">
-    <form  #userPost='ngForm' [formGroup]='createBanks' (ngSubmit)='onsubmit(userPost.value)' >
+    <form #userPost='ngForm' [formGroup]='createBanks' (ngSubmit)='onsubmit(userPost.value)' >
   <div class="form-group">
     <label >Bank Name :</label>
     <input type="text" ngModel formControlName='bname' class="form-control" id="bankname" placeholder="Enter bank Name">
@@ -34,12 +34,11 @@ import { HttpClient } from '@angular/common/http';
         </div>
       </div>
     </div>
- 
   </div>
   <button type="submit" id="cbtn" class="btn btn-primary">Submit</button>
 </form>
     
-    <button class="btn btn-primary"  routerLink='/banks'>
+    <button class="btn btn-primary"  routerLink='/bank/banks'>
         back
       </button>
       </div>    
@@ -47,7 +46,7 @@ import { HttpClient } from '@angular/common/http';
   styles: [
   ]
 })
-export class CreateBanksComponent implements OnInit {
+export class CreateBankComponent implements OnInit {
 
   constructor(private http:HttpClient,private route: ActivatedRoute, private router: Router) { }
 

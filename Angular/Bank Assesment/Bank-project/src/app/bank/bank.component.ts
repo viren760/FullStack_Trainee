@@ -1,3 +1,5 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { routingComponent } from '../app-routing.module';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div>
       1
-      <span routerLink='/showbanks'>
+      <span (click)='showBanks()'>
         Show All banks
       </span>
     </div>
     <div>
       2
-      <span routerLink='/createbanks' >
+      <span (click)='createBanks()' >
         Create New Bank
       </span>
     </div>
@@ -21,9 +23,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  showBanks(){
+    return this.router.navigate(['/bank/showbanks'],{relativeTo:this.route})
+  }
+
+  createBanks(){
+    return this.router.navigate(['/bank/createbanks'],{relativeTo:this.route})
   }
 
 }
