@@ -6,6 +6,9 @@
 .login-h{
     text-align: center;
 }
+#logout,#login{
+    color: white;
+}
 
 .sign-h{
     text-align: center;

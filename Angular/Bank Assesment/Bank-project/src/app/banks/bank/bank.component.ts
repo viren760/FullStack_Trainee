@@ -1,5 +1,4 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { routingComponent } from '../app-routing.module';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,3 +1,4 @@
+import { BanksService } from 'src/app/banks.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -11,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
       <div class="login-h"><h2>LOGIN FORM</h2></div>
       <form [formGroup]="loginForm" (ngSubmit)="onsubmit()" novalidate>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label>Email address</label>
           <input
             type="email"
             [(ngModel)]='email' 
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit {
    email:any;
    password:any;
   public users: User | undefined;
-  constructor(private router: Router, private route: ActivatedRoute, private http:HttpClient) {}
+  constructor(private router: Router, private route: ActivatedRoute, private http:HttpClient, private service:BanksService) {}
 
   ngOnInit(): void {}
 
@@ -96,6 +97,9 @@ export class LoginComponent implements OnInit {
 
   loginRequest(r:any){
     if(r.status == 200){
+      this.service.status = true;
+      localStorage.setItem('status',"1");
+      localStorage.setItem('token',r);
       return  this.router.navigate(['/bank/banks'], { relativeTo: this.route });
     }else{
       return alert(r.message);

@@ -29,7 +29,7 @@ public class BankService {
 	}
 
 	public Banks findByBankId(int bankId) {
-		log.info("findByBankName" + " " + bankId);
+		log.info("findByBankId" + " " + bankId);
 		return this.bankrepository.findByBankId(bankId)
 				.orElseThrow(() -> new CustomException("not found", HttpStatus.NOT_FOUND));
 

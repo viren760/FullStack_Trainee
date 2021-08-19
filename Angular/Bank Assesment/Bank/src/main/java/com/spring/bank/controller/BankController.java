@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.spring.bank.entities.Banks;
 import com.spring.bank.entities.User;
 import com.spring.bank.service.BankService;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/banks")
 public class BankController {

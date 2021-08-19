@@ -1,3 +1,5 @@
+import { ShowBanksComponent } from './banks/show-banks/show-banks.component';
+import { BankDetailsComponent } from './banks/bank-details/bank-details.component';
 import { AuthGuard } from './auth.guard';
 import { BanksModule } from './banks/banks.module';
 import { NgModule } from '@angular/core';
@@ -8,8 +10,12 @@ import { AppComponent } from './app.component';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { CreateBankComponent } from './create-bank/create-bank.component';
-import { BankComponent } from './bank/bank.component';
+import { CreateBankComponent } from './banks/create-bank/create-bank.component';
+import { BankComponent } from './banks/bank/bank.component';
+import { EditBanksComponent } from './banks/edit-banks/edit-banks.component';
+
+
+
 
 
 
@@ -17,8 +23,11 @@ import { BankComponent } from './bank/bank.component';
   declarations: [
     AppComponent,
     routingComponent,
+   ShowBanksComponent ,
     CreateBankComponent,
-    BankComponent
+    BankDetailsComponent,
+    BankComponent,
+    EditBanksComponent,
   ], entryComponents: [BankComponent],
   imports: [
     BrowserModule,
