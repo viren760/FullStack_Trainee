@@ -1,7 +1,7 @@
 import { Banks } from 'src/app/Banks';
 import { Loan } from 'src/app/Loan';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { bank } from 'src/app/bank';
@@ -58,9 +58,7 @@ bank = new bank();
 
  bankName = document.getElementById('bankName');
 
-// bankName:string="bankname";
-
-  constructor(private http:HttpClient,private route: ActivatedRoute, private router: Router) { 
+  constructor(private cdr:ChangeDetectorRef,private http:HttpClient,private route: ActivatedRoute, private router: Router) { 
     this.bank.loans = [];
     this.bank.loans.push(new Loan());
   }
@@ -72,12 +70,15 @@ bank = new bank();
   increment(){
   var loan:Loan = new Loan()
   this.bank.loans.push(loan);
-  // this.dataArray.push(this.Loan)
   }
 
   decrement(index:any){
 this.bank.loans.splice(index)
   }
+
+  ngAfterContentChecked(): void {
+    this.cdr.detectChanges();
+ } 
 
   createBanks=new FormGroup({
     bname : new FormControl('',Validators.required),
@@ -86,7 +87,6 @@ this.bank.loans.splice(index)
   })
 
   onsubmit(data:any){
-    // console.log(this.dataArray)
     this.http.post("http://localhost:9091/banks",this.bank).subscribe((result)=>{
        console.log("result",result)
        if(this.createBanks.invalid){

@@ -8,7 +8,8 @@ import { UserService } from './user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  Name:any
+  Data:any 
   title = 'Bank-project';
   isButtonVisible = true;
   constructor(public authservice:UserService, public service:BanksService){
@@ -17,6 +18,8 @@ export class AppComponent {
 
   ngOnInit(): void {
   }
+
+  
 
   logout(){
     this.service.status = false;

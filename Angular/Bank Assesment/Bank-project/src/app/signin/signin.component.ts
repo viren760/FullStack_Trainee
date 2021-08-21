@@ -77,7 +77,9 @@ import { HttpClient } from '@angular/common/http';
   styles: [],
 })
 export class SigninComponent implements OnInit {
-
+ 
+  SignData:any
+  
   constructor(private router :Router, private route :ActivatedRoute, private http:HttpClient) {}
 
   ngOnInit(): void {}
@@ -85,13 +87,19 @@ export class SigninComponent implements OnInit {
   signup = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(
+        '(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:{\\}\\[\\]\\|\\+\\-\\=\\_\\)\\(\\)\\`\\/\\\\\\]])[A-Za-z0-9d$@].{7,}'
+      ),
+    ]),
     phone: new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
   });
  
   onsubmit(data: any){
     this.http.post("http://localhost:9091/login/signup",data).subscribe((result)=>{
       console.log('result',result)
+      this.SignData= JSON.stringify(result)
       if(this.signup.invalid){
         return alert('Failed to submit');
       }
@@ -99,7 +107,7 @@ export class SigninComponent implements OnInit {
         return this.router.navigate(['/login'],{relativeTo:this.route})
       }
     })
-//  this.router.navigate(['/login'],{relativeTo:this.route})
+
   }
 
   signinRequest(r:any){

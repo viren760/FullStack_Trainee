@@ -42,17 +42,17 @@ public class LoginService {
 
 	}
 
-	public Response<String> login(LoginRequest login) {
+	public Response<User> login(LoginRequest login) {
 		Optional<User> u = userRepository.findByEmail(login.getEmail());
 		if (u.isPresent()) {
 			if (!u.get().getPassword().equals(login.getPassword())) {
-				return new Response<String>("email or password incorrect", HttpStatus.BAD_REQUEST.value());
+				return new Response<User>(null, HttpStatus.BAD_REQUEST.value());
 			}
 		} else {
 
-			return new Response<String>("email or password incorrect", HttpStatus.BAD_REQUEST.value());
+			return new Response<User>(null, HttpStatus.BAD_REQUEST.value());
 		}
-		return new Response<String>("login success", HttpStatus.OK.value());
+		return new Response<User>(u.get(), HttpStatus.OK.value());
 
 	}
 

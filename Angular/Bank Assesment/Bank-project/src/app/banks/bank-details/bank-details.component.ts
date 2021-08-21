@@ -5,7 +5,7 @@ import { JsonpClientBackend, HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-bank-details',
   template: `
-        <div class="container">
+        <div class="container"*ngIf="myData != undefined" >
        <div class="card">
          <h3 class="text-center">Bank Detail</h3>
          <div class="card-body">
@@ -35,7 +35,7 @@ import { JsonpClientBackend, HttpClient } from '@angular/common/http';
              </table>
          </div>
          <button class="btn btn-success"  (click)='edit(myData.bankId)'>Edit</button>
-         <button (click)="back()" >back</button>
+         <button class="btn btn-primary" (click)="back()" >back</button>
        </div>
   `,
   styles: [
@@ -61,7 +61,7 @@ export class BankDetailsComponent implements OnInit {
  }
 
  back(){
-   this.router.navigate(['/bank/banksdetail'],{relativeTo:this.route})
+   this.router.navigate(['/bank/showbanks'],{relativeTo:this.route})
  }
 
  

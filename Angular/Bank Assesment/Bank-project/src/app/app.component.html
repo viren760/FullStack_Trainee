@@ -6,10 +6,12 @@
     <ul class="navbar-nav navbar-right" id="right">
       <li class="nav-item">
         <a class="nav-link" id="login" [ngClass]="{'d-none': service.status}" routerLinkActive="active" routerLink="/login">Login</a>
+        <a class="nav-link" id="login" [ngClass]="{'d-none': !service.status}" routerLinkActive="active" routerLink="/login">Welcome {{service.name}}</a>
       </li>
     </ul>
     <li class="nav-link"id="logout" [ngClass]="{'d-none': !service.status}"  routerLinkActive="active" (click)="logout()"  routerLink="/login">Logout</li>
 </nav>
 <div class="container-fluid" id="body"> 
+
 </div>
 <router-outlet></router-outlet>

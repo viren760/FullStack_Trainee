@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {User} from '../user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -77,10 +77,6 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  // get email() {
-  //   return this.loginForm.get('email');
-  // }
-
   onsubmit() {
     if(this.loginForm.invalid){
       return alert('Please Login First !!!')
@@ -97,6 +93,8 @@ export class LoginComponent implements OnInit {
 
   loginRequest(r:any){
     if(r.status == 200){
+      // console.log(r+"   "+JSON.stringify(r));
+      this.service.name = r.message.name;
       this.service.status = true;
       localStorage.setItem('status',"1");
       localStorage.setItem('token',r);

@@ -24,13 +24,5 @@ buttonFlag = false;
   getUser():Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUrl}`);
   } 
-
-  // Login(){
-  //   this.service.status = true;
-  // }
-
-  // Logout(){
-  //   this.service.status = false;
-  // }
-
+  
 }

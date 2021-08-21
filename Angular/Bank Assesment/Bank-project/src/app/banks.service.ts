@@ -8,6 +8,8 @@ import { Injectable } from '@angular/core';
 })
 export class BanksService {
  
+  name=""
+
   status:boolean = false;
   private baseUrl='http://localhost:9091/banks';
 

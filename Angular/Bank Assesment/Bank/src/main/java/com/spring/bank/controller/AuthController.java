@@ -40,7 +40,7 @@ public class AuthController {
 	}
 
 	@PostMapping("/login")
-	public Response<String> login(@RequestBody LoginRequest login){
+	public Response<User> login(@RequestBody LoginRequest login){
 		return loginService.login(login);
 	}
 	

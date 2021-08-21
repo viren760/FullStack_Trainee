@@ -65,20 +65,12 @@ this.bankService.getBanks().subscribe((data:Banks[])=>{
     return this.router.navigate(['/bank/banks'],{relativeTo:this.route})
   }
 
-  // showBankDetails(bankId:any){
-  //  this.http.get('http://localhost:9091/banks/'+bankId).subscribe((result:any)=>{
-  //    localStorage.setItem('BankData', JSON.stringify(result))
-  //   //  console.log(localStorage.getItem('BankData'))
-  //    this.router.navigate(['/bank/banksdetail'],{relativeTo:this.route})
-  //  })
-  // }
 
   deleteBank(index:any){
    this.http.delete('http://localhost:9091/banks/'+index).subscribe((result)=>{
      console.log('successfully deleted:',result)
    })
-  //  this.banks.splice(index,1);
-
+   
    for(var i=0; i<this.banks.length; i++){
     if(this.banks[i].bankId == index){
       this.banks.splice(i,1);
